@@ -1,0 +1,7 @@
+parameters:
+#    w_pensar_erp.example.class: WPensar\ERPBundle\Example
+
+services:
+#    w_pensar_erp.example:
+#        class: %w_pensar_erp.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

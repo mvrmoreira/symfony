@@ -1,0 +1,4 @@
+wpensar_erp:
+    resource: "@WPensarERPBundle/Resources/config/routing.yml"
+    prefix:   /
+
