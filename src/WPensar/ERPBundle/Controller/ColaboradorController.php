@@ -34,7 +34,9 @@ class ColaboradorController extends Controller
 			{
 				$em = $this->getDoctrine()->getManager();
 				$em->persist($colaborador);
-				$em->flush();			
+				$em->flush();	
+				
+				$this->get('session')->getFlashBag()->add('notice', 'Colaborador cadastrado com sucesso!');
 				
 				return $this->redirect($this->generateUrl('wpensar_erp_colaborador_listar'));
 			}
