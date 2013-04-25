@@ -3,6 +3,7 @@
 namespace WPensar\ERPBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Colaborador
@@ -25,6 +26,8 @@ class Colaborador
      * @var string
      *
      * @ORM\Column(name="nome", type="string", length=255)
+	 * 
+	 * @Assert\NotBlank()
      */
     private $nome;
 
@@ -32,76 +35,78 @@ class Colaborador
      * @var string
      *
      * @ORM\Column(name="situacao", type="string", length=30)
+	 * 
+	 * @Assert\NotBlank()
      */
     private $situacao;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="cpf", type="string", length=14)
+     * @ORM\Column(name="cpf", type="string", length=14, nullable=true)
      */
     private $cpf;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="rg", type="string", length=50)
+     * @ORM\Column(name="rg", type="string", length=50, nullable=true)
      */
     private $rg;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="orgao_expedidor", type="string", length=50)
+     * @ORM\Column(name="orgao_expedidor", type="string", length=50, nullable=true)
      */
     private $orgaoExpedidor;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="data_emissao", type="date")
+     * @ORM\Column(name="data_emissao", type="date", nullable=true)
      */
     private $dataEmissao;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="data_nascimento", type="date")
+     * @ORM\Column(name="data_nascimento", type="date", nullable=true)
      */
     private $dataNascimento;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="sexo", type="string", length=10)
+     * @ORM\Column(name="sexo", type="string", length=10, nullable=true)
      */
     private $sexo;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="estado_civil", type="string", length=30)
+     * @ORM\Column(name="estado_civil", type="string", length=30, nullable=true)
      */
     private $estadoCivil;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="celular", type="string", length=14)
+     * @ORM\Column(name="celular", type="string", length=14, nullable=true)
      */
     private $celular;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="telefone", type="string", length=14)
+     * @ORM\Column(name="telefone", type="string", length=14, nullable=true)
      */
     private $telefone;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
      */
     private $email;
 

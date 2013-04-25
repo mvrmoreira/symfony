@@ -1,0 +1,7 @@
+{% form_theme form with 'WPensarERPBundle:Form:fields.html.twig' %}
+
+<form action="{{ path('wpensar_erp_colaborador_cadastrar') }}" method="post" {{ form_enctype(form) }} novalidate="">
+    {{ form_widget(form) }}
+
+    <input type="submit" />
+</form>
