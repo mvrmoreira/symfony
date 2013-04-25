@@ -1,7 +1,15 @@
+{% extends '::base.html.twig' %}
+
 {% form_theme form with 'WPensarERPBundle:Form:fields.html.twig' %}
+
+{% block body %}
+
+<h1>Cadastro de Colaborador</h1>
 
 <form action="{{ path('wpensar_erp_colaborador_cadastrar') }}" method="post" {{ form_enctype(form) }} novalidate="">
     {{ form_widget(form) }}
 
-    <input type="submit" />
+    <input type="submit" value="Salvar" />
 </form>
+
+{% endblock %}

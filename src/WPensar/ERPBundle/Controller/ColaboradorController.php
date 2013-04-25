@@ -12,7 +12,13 @@ class ColaboradorController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('WPensarERPBundle:Colaborador:index.html.twig');
+		$colaboradores = $this->getDoctrine()
+				->getRepository('WPensarERPBundle:Colaborador')
+				->findAll();
+		
+        return $this->render('WPensarERPBundle:Colaborador:index.html.twig', array(
+			'colaboradores' => $colaboradores
+		));
     }
 	
 	public function cadastrarAction(Request $request)

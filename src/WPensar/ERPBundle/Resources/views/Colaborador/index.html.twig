@@ -1,1 +1,28 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Colaboradores{% endblock %}
+
+{% block body %}
+
 <h1>Colaboradores</h1>
+
+<table>
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Nome</th>
+			<th>Situação</th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for colaborador in colaboradores %}
+		<tr>
+			<td>{{ colaborador.getId() }}</td>
+			<td>{{ colaborador.getNome() }}</td>
+			<td>{{ colaborador.getSituacao() }}</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+
+{% endblock %}

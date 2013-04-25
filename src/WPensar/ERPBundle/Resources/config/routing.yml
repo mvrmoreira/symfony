@@ -1,5 +1,5 @@
 wpensar_erp_colaborador_listar:
-    pattern:  /wpensar/erp/colaborador
+    pattern:  /wpensar/erp/colaboradores
     defaults: { _controller: WPensarERPBundle:Colaborador:index }
     
 wpensar_erp_colaborador_cadastrar:
