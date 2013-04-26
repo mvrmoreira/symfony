@@ -47,7 +47,7 @@ class ColaboradorController extends Controller
 		));
 	}
 	
-	public function editarAction($id, Request $request)
+	public function editarAction(Request $request, $id)
 	{
 		$em = $this->getDoctrine()->getManager();
 		
@@ -78,5 +78,24 @@ class ColaboradorController extends Controller
 		return $this->render('WPensarERPBundle:Colaborador:form.html.twig', array(
 			'form' => $form->createView()
 		));
+	}
+	
+	public function excluirAction($id)
+	{
+		$em = $this->getDoctrine()->getManager();
+		
+		$colaborador = $em->getRepository('WPensarERPBundle:Colaborador')->find($id);
+		
+		if (!$colaborador)
+		{
+			throw $this->createNotFoundException('Colaborador não encontrado!');
+		}
+		
+		$em->remove($colaborador);
+		$em->flush();
+		
+		$this->get('session')->getFlashBag()->add('notice', 'Colaborador excluído com sucesso!');
+				
+		return $this->redirect($this->generateUrl('wpensar_erp_colaborador_listar'));
 	}
 }

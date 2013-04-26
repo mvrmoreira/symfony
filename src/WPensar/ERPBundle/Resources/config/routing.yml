@@ -9,3 +9,7 @@ wpensar_erp_colaborador_cadastrar:
 wpensar_erp_colaborador_editar:
     pattern:  /wpensar/erp/colaborador/editar/{id}
     defaults: { _controller: WPensarERPBundle:Colaborador:editar }
+    
+wpensar_erp_colaborador_excluir:
+    pattern:  /wpensar/erp/colaborador/excluir/{id}
+    defaults: { _controller: WPensarERPBundle:Colaborador:excluir }
