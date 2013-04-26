@@ -4,19 +4,22 @@
 
 {% block body %}
 
-{% for flashMessage in app.session.flashbag.get('notice') %}
-    <div class="flash-notice">
-        {{ flashMessage }}
-    </div>
+{% for type, flashMessages in app.session.flashbag.all() %}
+	{% for flashMessage in flashMessages %}
+		<div class="alert alert-{{ type }}">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			{{ flashMessage }}
+		</div>
+	{% endfor %}
 {% endfor %}
 
 <h1>Colaboradores</h1>
 
 <p>
-	<a href="{{ url('wpensar_erp_colaborador_cadastrar') }}">Cadastrar</a>
+	<a href="{{ url('wpensar_erp_colaborador_cadastrar') }}" class="btn btn-primary">Cadastrar</a>
 </p>
 
-<table>
+<table class="table table-striped table-hover">
 	<thead>
 		<tr>
 			<th>Id</th>
@@ -31,8 +34,8 @@
 			<td>{{ colaborador.getNome() }}</td>
 			<td>{{ colaborador.getSituacao() }}</td>
 			<td>
-				<a href="{{ url('wpensar_erp_colaborador_editar', {id: colaborador.getId()}) }}">Editar</a>
-				<a href="{{ url('wpensar_erp_colaborador_excluir', {id: colaborador.getId()}) }}">Excluir</a>
+				<a href="{{ url('wpensar_erp_colaborador_editar', {id: colaborador.getId()}) }}" title="Editar"><i class="icon-edit"></i></a>
+				<a href="{{ url('wpensar_erp_colaborador_excluir', {id: colaborador.getId()}) }}" title="Remover"><i class="icon-remove"></i></a>
 			</td>
 		</tr>
 	{% endfor %}

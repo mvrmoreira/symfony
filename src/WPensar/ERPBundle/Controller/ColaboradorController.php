@@ -36,7 +36,7 @@ class ColaboradorController extends Controller
 				$em->persist($colaborador);
 				$em->flush();	
 				
-				$this->get('session')->getFlashBag()->add('notice', 'Colaborador cadastrado com sucesso!');
+				$this->get('session')->getFlashBag()->add('success', 'Colaborador cadastrado com sucesso!');
 				
 				return $this->redirect($this->generateUrl('wpensar_erp_colaborador_listar'));
 			}
@@ -69,7 +69,7 @@ class ColaboradorController extends Controller
 				$em->persist($colaborador);
 				$em->flush();	
 				
-				$this->get('session')->getFlashBag()->add('notice', 'Colaborador atualizado com sucesso!');
+				$this->get('session')->getFlashBag()->add('success', 'Colaborador atualizado com sucesso!');
 				
 				return $this->redirect($this->generateUrl('wpensar_erp_colaborador_listar'));
 			}
@@ -94,7 +94,7 @@ class ColaboradorController extends Controller
 		$em->remove($colaborador);
 		$em->flush();
 		
-		$this->get('session')->getFlashBag()->add('notice', 'Colaborador excluído com sucesso!');
+		$this->get('session')->getFlashBag()->add('success', 'Colaborador excluído com sucesso!');
 				
 		return $this->redirect($this->generateUrl('wpensar_erp_colaborador_listar'));
 	}
