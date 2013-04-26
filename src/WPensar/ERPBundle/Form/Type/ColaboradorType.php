@@ -20,7 +20,10 @@ class ColaboradorType extends AbstractType
 			)
 		));
 		$builder->add('cpf', null, array(
-			'label' => 'CPF'
+			'label' => 'CPF',
+			'attr' => array(
+				'class' => 'cpf'
+			)
 		));
 		$builder->add('rg', null, array(
 			'label' => 'RG'
@@ -31,13 +34,20 @@ class ColaboradorType extends AbstractType
 		$builder->add('data_emissao', 'date', array(
 			'label' => 'Data de Emissão',
 			'required' => false,
-			'format' => 'dd/MM/yyyy'
+			'format' => 'dd/MM/yyyy',
+			'widget' => 'single_text',
+			'attr' => array(
+				'class' => 'data'
+			)
 		));
 		$builder->add('data_nascimento', 'birthday', array(
 			'label' => 'Data de Nascimento',
 			'required' => false,
 			'format' => 'dd/MM/yyyy',
-			'widget' => 'single_text'
+			'widget' => 'single_text',
+			'attr' => array(
+				'class' => 'data'
+			)
 		));
 		$builder->add('sexo', 'choice', array(
 			'choices' => array('m' => 'Masculino', 'f' => 'Feminino'),
@@ -51,8 +61,16 @@ class ColaboradorType extends AbstractType
 			),
 			'required' => false
 		));
-		$builder->add('celular');
-		$builder->add('telefone');
+		$builder->add('celular', null, array(
+			'attr' => array(
+				'class' => 'telefone'
+			)
+		));
+		$builder->add('telefone', null, array(
+			'attr' => array(
+				'class' => 'telefone'
+			)
+		));
 		$builder->add('email', 'email');
 	}
 	
