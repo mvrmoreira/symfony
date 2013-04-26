@@ -122,6 +122,19 @@ class Colaborador
     }
 
     /**
+     * Set id
+     *
+     * @param string $id
+     * @return Colaborador
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    
+        return $this;
+    }
+
+    /**
      * Set nome
      *
      * @param string $nome

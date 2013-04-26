@@ -28,6 +28,7 @@
 			<td>{{ colaborador.getId() }}</td>
 			<td>{{ colaborador.getNome() }}</td>
 			<td>{{ colaborador.getSituacao() }}</td>
+			<td><a href="{{ url('wpensar_erp_colaborador_editar', {id: colaborador.getId()}) }}">Editar</a></td>
 		</tr>
 	{% endfor %}
 	</tbody>

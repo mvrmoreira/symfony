@@ -10,6 +10,7 @@ class ColaboradorType extends AbstractType
 {
 	public function buildForm(FormBuilderInterface $builder, array $options) 
 	{
+		$builder->add('id', 'hidden');
 		$builder->add('nome');
 		$builder->add('situacao', 'choice', array(
 			'label' => 'Situação',

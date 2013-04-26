@@ -5,3 +5,7 @@ wpensar_erp_colaborador_listar:
 wpensar_erp_colaborador_cadastrar:
     pattern:  /wpensar/erp/colaborador/cadastrar
     defaults: { _controller: WPensarERPBundle:Colaborador:cadastrar }
+    
+wpensar_erp_colaborador_editar:
+    pattern:  /wpensar/erp/colaborador/editar/{id}
+    defaults: { _controller: WPensarERPBundle:Colaborador:editar }
