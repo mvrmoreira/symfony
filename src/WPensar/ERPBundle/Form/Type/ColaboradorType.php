@@ -36,7 +36,8 @@ class ColaboradorType extends AbstractType
 		$builder->add('data_nascimento', 'birthday', array(
 			'label' => 'Data de Nascimento',
 			'required' => false,
-			'format' => 'dd/MM/yyyy'
+			'format' => 'dd/MM/yyyy',
+			'widget' => 'single_text'
 		));
 		$builder->add('sexo', 'choice', array(
 			'choices' => array('m' => 'Masculino', 'f' => 'Feminino'),
