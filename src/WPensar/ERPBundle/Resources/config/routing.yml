@@ -1,15 +1,15 @@
 wpensar_erp_colaborador_listar:
-    pattern:  /wpensar/erp/colaboradores
+    pattern:  /colaboradores
     defaults: { _controller: WPensarERPBundle:Colaborador:index }
     
 wpensar_erp_colaborador_cadastrar:
-    pattern:  /wpensar/erp/colaborador/cadastrar
+    pattern:  /colaborador/cadastrar
     defaults: { _controller: WPensarERPBundle:Colaborador:cadastrar }
     
 wpensar_erp_colaborador_editar:
-    pattern:  /wpensar/erp/colaborador/editar/{id}
+    pattern:  /colaborador/editar/{id}
     defaults: { _controller: WPensarERPBundle:Colaborador:editar }
     
 wpensar_erp_colaborador_excluir:
-    pattern:  /wpensar/erp/colaborador/excluir/{id}
+    pattern:  /colaborador/excluir/{id}
     defaults: { _controller: WPensarERPBundle:Colaborador:excluir }
