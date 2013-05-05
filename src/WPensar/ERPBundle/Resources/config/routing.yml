@@ -13,3 +13,10 @@ wpensar_erp_colaborador_editar:
 wpensar_erp_colaborador_excluir:
     pattern:  /colaborador/excluir/{id}
     defaults: { _controller: WPensarERPBundle:Colaborador:excluir }
+    
+login:
+    pattern:   /login
+    defaults:  { _controller: WPensarERPBundle:Colaborador:login }
+    
+login_check:
+    pattern:   /login_check

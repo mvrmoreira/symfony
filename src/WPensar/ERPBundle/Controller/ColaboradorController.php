@@ -4,6 +4,7 @@ namespace WPensar\ERPBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\SecurityContext;
 
 use WPensar\ERPBundle\Entity\Colaborador;
 use WPensar\ERPBundle\Form\Type\ColaboradorType;
@@ -97,5 +98,26 @@ class ColaboradorController extends Controller
 		$this->get('session')->getFlashBag()->add('success', 'Colaborador excluído com sucesso!');
 				
 		return $this->redirect($this->generateUrl('wpensar_erp_colaborador_listar'));
+	}
+	
+	public function loginAction()
+	{
+		$request = $this->getRequest();
+		$session = $request->getSession();
+		
+		if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR))
+		{
+			$error = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
+		}
+		else
+		{
+			$error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
+			$session->remove(SecurityContext::AUTHENTICATION_ERROR);
+		}
+		
+		return $this->render('WPensarERPBundle:Colaborador:login.html.twig', array(
+			'last_username' => $session->get(SecurityContext::LAST_USERNAME),
+			'error' => $error
+		));
 	}
 }
