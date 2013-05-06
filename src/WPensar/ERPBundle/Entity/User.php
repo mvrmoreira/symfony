@@ -3,7 +3,7 @@
 namespace WPensar\ERPBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 
 /**
  * User
@@ -11,7 +11,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="WPensar\ERPBundle\Entity\UserRepository")
  */
-class User implements UserInterface, \Serializable
+class User implements AdvancedUserInterface, \Serializable
 {
     /**
      * @var integer
@@ -25,7 +25,7 @@ class User implements UserInterface, \Serializable
     /**
      * @var string
      *
-     * @ORM\Column(name="username", type="string", length=25)
+     * @ORM\Column(name="username", type="string", length=25, unique=true)
      */
     private $username;
 
@@ -206,5 +206,21 @@ class User implements UserInterface, \Serializable
 		list (
             $this->id,
         ) = unserialize($serialized);
+	}
+
+	public function isAccountNonExpired() {
+		return true;
+	}
+
+	public function isAccountNonLocked() {
+		return true;
+	}
+
+	public function isCredentialsNonExpired() {
+		return true;
+	}
+
+	public function isEnabled() {
+		return $this->isActive;
 	}
 }
