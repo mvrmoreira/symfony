@@ -32,7 +32,7 @@
 		<tr>
 			<td>{{ colaborador.getId() }}</td>
 			<td>{{ colaborador.getNome() }}</td>
-			<td>{{ colaborador.getSituacao() }}</td>
+			<td>{{ colaborador.getSituacao() ? 'Ativo' : 'Inativo' }}</td>
 			<td>
 				<a href="{{ url('wpensar_erp_colaborador_editar', {id: colaborador.getId()}) }}" title="Editar"><i class="icon-edit"></i></a>
 				<a href="{{ url('wpensar_erp_colaborador_excluir', {id: colaborador.getId()}) }}" title="Remover"><i class="icon-remove"></i></a>
