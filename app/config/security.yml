@@ -33,6 +33,9 @@ security:
             form_login:
                 login_path: login
                 check_path: login_check
+                default_target_path: wpensar_erp_colaborador_listar
+                always_use_default_target_path: true
+                use_referer: true
             logout: ~
 
     access_control:
