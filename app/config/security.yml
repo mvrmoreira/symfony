@@ -4,7 +4,7 @@ jms_security_extra:
 
 security:
     encoders:
-        WPensar\ERPBundle\Entity\User:
+        WPensar\ERPBundle\Entity\Usuario:
             algorithm:        sha1
             encode_as_base64: false
             iterations:       1
@@ -15,7 +15,7 @@ security:
 
     providers:
         administrators:
-            entity: { class: WPensarERPBundle:User, property: username }
+            entity: { class: WPensarERPBundle:Usuario, property: username }
 
     firewalls:
       

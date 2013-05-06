@@ -4,14 +4,15 @@ namespace WPensar\ERPBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * User
+ * Usuario
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="WPensar\ERPBundle\Entity\UserRepository")
+ * @ORM\Entity(repositoryClass="WPensar\ERPBundle\Entity\UsuarioRepository")
  */
-class User implements AdvancedUserInterface, \Serializable
+class Usuario implements AdvancedUserInterface, \Serializable
 {
     /**
      * @var integer
@@ -57,10 +58,16 @@ class User implements AdvancedUserInterface, \Serializable
      */
     private $isActive;
 	
+	/**
+	 * @ORM\ManyToMany(targetEntity="Grupo", inversedBy="usuario")
+	 */
+	private $grupos;
+	
 	public function __construct()
     {
         $this->isActive = true;
         $this->salt = md5(uniqid(null, true));
+		$this->grupos = new ArrayCollection();
     }
 
     /**
@@ -77,7 +84,7 @@ class User implements AdvancedUserInterface, \Serializable
      * Set username
      *
      * @param string $username
-     * @return User
+     * @return Usuario
      */
     public function setUsername($username)
     {
@@ -100,7 +107,7 @@ class User implements AdvancedUserInterface, \Serializable
      * Set salt
      *
      * @param string $salt
-     * @return User
+     * @return Usuario
      */
     public function setSalt($salt)
     {
@@ -123,7 +130,7 @@ class User implements AdvancedUserInterface, \Serializable
      * Set password
      *
      * @param string $password
-     * @return User
+     * @return Usuario
      */
     public function setPassword($password)
     {
@@ -146,7 +153,7 @@ class User implements AdvancedUserInterface, \Serializable
      * Set email
      *
      * @param string $email
-     * @return User
+     * @return Usuario
      */
     public function setEmail($email)
     {
@@ -169,7 +176,7 @@ class User implements AdvancedUserInterface, \Serializable
      * Set isActive
      *
      * @param boolean $isActive
-     * @return User
+     * @return Usuario
      */
     public function setIsActive($isActive)
     {
@@ -192,11 +199,13 @@ class User implements AdvancedUserInterface, \Serializable
 		
 	}
 
-	public function getRoles() {
-		return array('ROLE_USER');
+	public function getRoles() 
+	{
+		return $this->grupos->toArray();
 	}
 
-	public function serialize() {
+	public function serialize() 
+	{
 		return serialize(array(
             $this->id,
         ));
